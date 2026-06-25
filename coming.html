@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Mariners Onside</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Arial Black',Arial,sans-serif;}
+        body{background:#000;color:#fff;line-height:1.6;}
+
+        /* TOP SOCIAL BAR */
+        .top-bar{
+            background:linear-gradient(to bottom,#006400,#008000);
+            padding:14px 0;
+            text-align:center;
+            font-weight:bold;
+            font-size:16px;
+        }
+        .top-bar a{
+            color:#fff;
+            margin:0 18px;
+            font-size:24px;
+            text-decoration:none;
+            transition:.3s;
+        }
+        .top-bar a:hover{color:#00ff00;transform:scale(1.3);}
+        .top-bar span{margin-right:20px;}
+
+        /* HEADER */
+        header{
+            background:#510400;
+            padding:20px 0;
+            text-align:center;
+        }
+        .logo-container{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+        .logo{
+            width:90px;height:90px;
+            background:url('logo.jpg') center/contain no-repeat;
+            border-radius:50%;
+            box-shadow:0 0 20px rgba(0,255,0,0.6);
+        }
+        .title{
+            font-size:42px;
+            font-weight:900;
+            letter-spacing:2px;
+            text-shadow:0 0 5px rgba(255,255,255,.5),3px 3px 6px #000;
+        }
+        .title span{font-size:28px;display:block;margin-top:5px;}
+
+        /* NAVIGATION */
+        nav{
+            background:#111;
+            padding:18px 0;
+            text-align:center;
+        }
+        nav a{
+            color:#fff;
+            margin:0 28px;
+            text-decoration:none;
+            font-size:18px;
+            font-weight:bold;
+            text-transform:uppercase;
+            transition:.3s;
+        }
+        nav a:hover{color:#00ff00;text-shadow:0 0 12px #00ff00;}
+
+        /* HERO SECTION */
+        .coming-hero{
+            background:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75));
+            padding:100px 50px;
+            text-align:center;
+            color:#fff;
+            position:relative;
+            min-height:500px;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+        }
+        .coming-hero h1{
+            font-size:72px;
+            letter-spacing:5px;
+            text-shadow:0 0 20px #00ff00;
+            margin-bottom:20px;
+            color:#00ff00;
+            position:relative;
+            z-index:2;
+        }
+        .coming-hero p{
+            font-size:22px;
+            max-width:800px;
+            margin:0 auto 40px;
+            opacity:0.9;
+            position:relative;
+            z-index:2;
+        }
+        .hero-logo {
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%);
+            width:auto;
+            height:300px;
+            opacity:0.15;
+            z-index:1;
+            pointer-events:none;
+        }
+
+        /* COUNTDOWN */
+        .countdown-section{
+            padding:60px 20px;
+            text-align:center;
+            max-width:1200px;
+            margin:0 auto;
+        }
+        .countdown-title{
+            font-size:44px;
+            margin-bottom:40px;
+            color:#00ff00;
+            text-shadow:0 0 15px rgba(0,255,0,0.6);
+        }
+        .countdown{
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+            gap:30px;
+            margin-bottom:60px;
+        }
+        .time-block{
+            background:rgba(20,20,20,0.95);
+            border:2px solid rgba(0,255,0,0.6);
+            border-radius:15px;
+            padding:30px 20px;
+            transition:all .4s;
+            box-shadow:0 0 30px rgba(0,255,0,0.3);
+        }
+        .time-block:hover{
+            transform:translateY(-10px);
+            box-shadow:0 0 60px rgba(0,255,0,0.9);
+            border-color:#00ff00;
+        }
+        .time-block .number{
+            font-size:48px;
+            font-weight:900;
+            color:#00ff00;
+            display:block;
+            margin-bottom:10px;
+        }
+        .time-block .label{
+            font-size:16px;
+            color:#aaa;
+            text-transform:uppercase;
+            letter-spacing:2px;
+        }
+
+        /* FEATURES */
+        .features-section{
+            padding:80px 20px;
+            max-width:1400px;
+            margin:0 auto;
+        }
+        .section-title{
+            text-align:center;
+            font-size:48px;
+            margin-bottom:60px;
+            text-transform:uppercase;
+            letter-spacing:3px;
+            color:#00ff00;
+            text-shadow:0 0 15px rgba(0,255,0,0.6);
+        }
+        .features-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+            gap:40px;
+        }
+        .feature{
+            background:rgba(20,20,20,0.95);
+            border:2px solid rgba(0,255,0,0.6);
+            border-radius:15px;
+            padding:40px 30px;
+            text-align:center;
+            transition:all .4s;
+            box-shadow:0 0 30px rgba(0,255,0,0.3);
+        }
+        .feature:hover{
+            transform:translateY(-15px);
+            box-shadow:0 0 60px rgba(0,255,0,0.9);
+            border-color:#00ff00;
+        }
+        .feature-icon{
+            font-size:60px;
+            color:#00ff00;
+            margin-bottom:20px;
+        }
+        .feature h3{
+            font-size:26px;
+            margin-bottom:15px;
+            color:#00ff00;
+        }
+        .feature p{
+            font-size:16px;
+            color:#aaa;
+            line-height:1.8;
+        }
+
+        /* NEWSLETTER */
+        .newsletter-section{
+            background:linear-gradient(135deg, rgba(0,100,0,0.3), rgba(0,50,0,0.3));
+            padding:80px 20px;
+            text-align:center;
+        }
+        .newsletter-section h2{
+            font-size:48px;
+            margin-bottom:20px;
+            color:#00ff00;
+        }
+        .newsletter-section p{
+            font-size:18px;
+            margin-bottom:40px;
+            opacity:0.9;
+            max-width:600px;
+            margin-left:auto;
+            margin-right:auto;
+        }
+        .newsletter-form{
+            display:flex;
+            gap:10px;
+            max-width:500px;
+            margin:0 auto;
+            flex-wrap:wrap;
+            justify-content:center;
+        }
+        .newsletter-form input{
+            flex:1;
+            min-width:250px;
+            padding:16px 20px;
+            border:2px solid #00ff00;
+            background:rgba(0,0,0,0.7);
+            color:#fff;
+            border-radius:8px;
+            font-size:16px;
+        }
+        .newsletter-form input:focus{
+            outline:none;
+            box-shadow:0 0 20px rgba(0,255,0,0.6);
+        }
+        .newsletter-form button{
+            padding:16px 40px;
+            background:#008631;
+            color:#fff;
+            border:none;
+            border-radius:8px;
+            font-size:18px;
+            font-weight:900;
+            cursor:pointer;
+            transition:.3s;
+        }
+        .newsletter-form button:hover{
+            background:#00ff00;
+            color:#000;
+            transform:scale(1.05);
+        }
+
+        /* FOOTER */
+        footer{
+            background:#111;
+            padding:40px 20px;
+            text-align:center;
+            border-top:3px solid #006400;
+        }
+        footer p{
+            font-size:18px;
+            opacity:0.8;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width:768px){
+            .coming-hero h1{font-size:48px;}
+            .coming-hero p{font-size:18px;padding:0 20px;}
+            .section-title{font-size:36px;}
+            .top-bar a{font-size:20px;margin:0 12px;}
+            nav a{margin:0 14px;font-size:16px;}
+            .countdown{grid-template-columns:repeat(2, 1fr);}
+            .hero-logo{height:200px;}
+            .newsletter-form{flex-direction:column;}
+            .newsletter-form input{min-width:100%;}
+        }
+    </style>
+</head>
+<body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <span>FOLLOW US</span>
+        <a href="https://www.facebook.com/share/17cesvqNoP/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <!--<a href="https://twitter.com/MarinersOnside" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>-->
+        <a href="https://www.instagram.com/marinersonsideofficial" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <!--<a href="https://www.youtube.com/@MarinersOnside" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://t.me/MarinersOnside" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>-->
+        <a href="https://whatsapp.com/channel/0029VbAaRygGpLHRbx1Oov06" target="_blank" aria-label="Discord"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo-container">
+            <div class="logo"></div>
+            <div class="title">
+                MARINERS ONSIDE
+                <span>COMING SOON</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="contact-us.html">Contact</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="coming-hero">
+        <h1>SOMETHING AWESOME IS COMING SOON</h1>
+        <p>We're preparing something extraordinary for our passionate supporters. Stay tuned!</p>
+    </section>
+
+    <!-- COUNTDOWN 
+    <section class="countdown-section">
+        <h2 class="countdown-title">Launch Countdown</h2>
+        <div class="countdown" id="countdown">
+            <div class="time-block">
+                <span class="number" id="days">0</span>
+                <span class="label">Days</span>
+            </div>
+            <div class="time-block">
+                <span class="number" id="hours">0</span>
+                <span class="label">Hours</span>
+            </div>
+            <div class="time-block">
+                <span class="number" id="minutes">0</span>
+                <span class="label">Minutes</span>
+            </div>
+            <div class="time-block">
+                <span class="number" id="seconds">0</span>
+                <span class="label">Seconds</span>
+            </div>
+        </div>
+    </section>-->
+
+    <!-- FEATURES -->
+    <section class="features-section">
+        <h2 class="section-title">What's Coming</h2>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-trophy"></i></div>
+                <h3>Exclusive Content</h3>
+                <p>Behind-the-scenes access to your favorite players and exclusive match footage you won't find anywhere else.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-users"></i></div>
+                <h3>Community Hub</h3>
+                <p>Connect with thousands of passionate Mariners supporters, share moments, and build lasting friendships.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon"><i class="fas fa-shopping-bag"></i></div>
+                <h3>Premium Merchandise</h3>
+                <p>Limited-edition jerseys, scarves, and collectibles available only to our community members.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+        <h2>Get Early Access</h2>
+        <p>Subscribe to our newsletter and be the first to know when we launch!</p>
+        <form class="newsletter-form" onsubmit="handleSubmit(event)">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Notify Me</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Mariners Onside • All Rights Reserved • Passion Finds Its Home</p>
+    </footer>
+
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            // Set target date (adjust this to your launch date)
+            const targetDate = new Date('2025-12-20T00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance > 0) {
+                document.getElementById('days').textContent = Math.floor(distance / (1000 * 60 * 60 * 24));
+                document.getElementById('hours').textContent = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById('minutes').textContent = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById('seconds').textContent = Math.floor((distance % (1000 * 60)) / 1000);
+            } else {
+                document.getElementById('countdown').innerHTML = '<h2 style="color:#00ff00;grid-column:1/-1;">WE\'RE LIVE!</h2>';
+            }
+        }
+
+        // Update countdown every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Newsletter form handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            alert('Thank you for subscribing! We\'ll notify you when we launch.');
+            event.target.reset();
+        }
+    </script>
+</body>
+
+</html>
+

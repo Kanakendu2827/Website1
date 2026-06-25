@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, #2d6a4f, #582f0e); 
+            display:flex; justify-content:center; align-items:center; min-height:100vh; margin:0; 
+        }
+        .box { 
+            background:white; padding:40px; border-radius:15px; width:90%; max-width:500px; 
+            box-shadow:0 10px 30px rgba(0,0,0,0.3); 
+        }
+        input, textarea, button { 
+            width:100%; padding:12px; margin:10px 0; border-radius:8px; border:1px solid #ccc; 
+            box-sizing:border-box; font-size:16px;
+        }
+        button { 
+            background:#2d6a4f; color:white; font-size:18px; cursor:pointer; border:none; 
+        }
+        button:hover { background:#40916c; }
+        .msg { 
+            padding:15px; margin:15px 0; border-radius:8px; display:none; text-align:center; font-weight:bold; 
+        }
+        .success { background:#d4edda; color:#155724; border:1px solid #c3e6cb; }
+        .error { background:#f8d7da; color:#721c24; border:1px solid #f5c6cb; }
+        h2 { text-align:center; color:#2d3748; }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h2>Contact Us</h2>
+    <div id="msg" class="msg"></div>
+
+    <!-- ==== WEB3FORMS ==== -->
+    <form action="https://api.web3forms.com/submit" method="POST" id="form">
+
+        <!-- YOUR ACCESS KEY HERE (get free at https://web3forms.com) -->
+        <input type="hidden" name="access_key" value="e7caeb74-2bf2-4b5a-b57c-14ff16949fbd">
+
+        <!-- Optional: Redirect after success -->
+        <!-- <input type="hidden" name="redirect" value="https://web3forms.com/success"> -->
+
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Phone (optional)">
+        <input type="text" name="subject" placeholder="Subject" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+        <!-- Optional: Bot protection (honeypot + reCAPTCHA v3 built-in) -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+
+<script>
+    const form = document.getElementById('form');
+    const result = document.getElementById('msg');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = form.querySelector('button');
+        btn.disabled = true;
+        btn.textContent = "Sending...";
+
+        const fd = new FormData(form);
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: fd
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                result.className = "msg success";
+                result.textContent = "Thank you! Your message was sent successfully.";
+                result.style.display = "block";
+                form.reset();
+            } else {
+                throw new Error(data.message);
+        })
+        .catch(err => {
+            result.className = "msg error";
+            result.textContent = err.message || "Something went wrong. Try again.";
+            result.style.display = "block";
+        })
+        .finally(() => {
+            btn.disabled = false;
+            btn.textContent = "Send Message";
+        });
+    });
+</script>
+</body>
+</html>

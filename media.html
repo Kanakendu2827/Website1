@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Core Media Members</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg,  green 0%, maroon 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: white;
+      margin-bottom: 50px;
+      font-size: 2.8rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 24px;
+      text-align: center;
+    }
+    .card h2 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      color: #667eea;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #555;
+    }
+    .placeholder-img {
+      background: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #999;
+      font-weight: bold;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Meet Our Amazing Media Committe Team</h1>
+
+  <div class="container" id="team-container">
+  </div>
+
+  <script>
+    const teamMembers = [
+    {
+        name: "Tathagata Dutta",
+        position: "Head Of the Media",
+        photo: "ta1.jpg",
+        bio: "As the Media Head of Mariners Onside, he blends his experience to provide creative media ideas and skillfully manages the team to execute engaging and impactful content strategies."
+    },
+    {
+        name: "Indrajit Dey (Advocate)",
+        position: "Media Manager",
+        photo: "c2.jpg",
+        bio: "Indrajit Dey is a Media Manager skilled in strategic communication, brand management, and legal compliance. With strong expertise in both media operations and legal guidance, he ensures clear messaging, smooth operations, and well-protected organizational interests. Known for his professionalism and quick problem-solving, Indrajit supports teams in maintaining credibility and delivering impactful communication."
+      },
+      {
+        name: "Subhadeep Chatterjee",
+        position: "Co-ordinator",
+        photo: "p11.jpg",
+        bio: "Subhadeep Chatterjee is the current President of the Mariners Onside and the co-ordinator of the Media Team bringing 2 years of field experience in  to the role. Passionate about works to ensure the club provides a welcoming and impactful experience for all members."
+      },
+      {
+        name: "Soumyabrata Akuli",
+        position: "Co-ordinator",
+        photo: "c1.jpg",
+        bio: "The Media Team Co-ordinator plays a key role in managing the club’s digital presence, ensuring smooth content flow across all platforms. They oversee updates, assist in creating engaging media, and coordinate between team members to maintain a consistent and professional communication style that represents the fan club’s spirit."
+      },
+
+      {
+        name: "Argho Dutta",
+        position: "Web-Manager",
+        photo: "ar1.jpg",
+        bio: "Argho Dutta serves as the Web Manager of the fan club, leading the club’s digital presence with precision and creativity. He oversees website updates, manages content flow, and ensures a smooth, engaging user experience. His technical expertise and dedication help strengthen the club’s online identity and reach."
+      },
+
+      {
+        name: "Kanakendu Das",
+        position: "Assistant Web-Manager",
+        photo: "k1.jpg",
+        bio: "Kanakendu Das serves as the Assistant Web Manager of the fan club, supporting the smooth running of the website and its digital content. He helps maintain updates, ensures functionality, and works closely with the web team to enhance user experience and strengthen the club’s online presence."
+      },
+      {
+        name: "Abhigyan Sarkar",
+        position: "Faceook Admin and Photographer",
+        photo: "as1.jpg",
+        bio: "Proudly fueling the Mariners Onside community as an Admin. I handle the digital content and step behind the camera to photograph our programs, keeping the spirit alive online and offline."
+      },
+      {
+        name: "Sourav Mazumdar",
+        position: "Instagram Admin",
+        photo: "jm1.jpg",
+        bio: "Meet Jimmy, the creative force behind the Mariner’s Onside Instagram. From curating daily posts to editing engaging videos, he works behind the scenes to bring our community the best visual content."
+      },
+
+      {
+        name: "Prithul Bhattacharjee",
+        position: "Research and Content Head",
+        photo: "pr1.jpg",
+        bio: "Prithul is a dedicated Research Head and Content Writer known for their expertise in sports history and archival documentation, with a primary focus on one of India's most iconic football institutions, Mohun Bagan."
+      },
+
+      {
+        name: "Debopriyo Mondol",
+        position: "Whatsapp Channel Admin",
+        photo: "de11.jpg",
+        bio: "Jayanta Chatterjee serves as the Joint Treasurer, supporting financial planning, budgeting, and transparent fund management. Known for his reliability and attention to detail, he helps ensure smooth financial operations and maintains accountability within the organization."
+      },
+      {
+        name: "Rahul Mondal",
+        position: "Head of The Creative Poster Designer",
+        photo: "ra11.jpg",
+        bio: "The Creative Poster Head leads the visual design efforts of the fan club, creating eye-catching posters and graphics for events, announcements, and social media. With a strong sense of creativity and style, they ensure the club’s visual identity remains vibrant, appealing, and aligned with its spirit."
+      },
+      {
+        name: "Sagar Haldar",
+        position: "Creative Video Editor Head",
+        photo: "sa12.jpg",
+        bio: "The Creative Video Editor brings the fan club’s moments to life by producing engaging and high-quality video content. They handle editing, visual effects, and storytelling, ensuring every video reflects the club’s energy and connects strongly with its members and supporters."
+      },
+
+      {
+        name: "Debraj Paria",
+        position: "Editor",
+        photo: "de12.jpg",
+        bio: "The Editor contributes to the fan club by preparing, refining, and organizing written content for publications and digital platforms. They ensure clarity, accuracy, and consistency in all communications, helping maintain the club’s professional and engaging voice across media."
+      },
+      {
+        name: "Ramananda Jana",
+        position: "Editor",
+        photo: "ra12.jpg",
+        bio: "The Editor contributes to the fan club by preparing, refining, and organizing written content for publications and digital platforms. They ensure clarity, accuracy, and consistency in all communications, helping maintain the club’s professional and engaging voice across media."
+      },
+      {
+        name: "Shivam Yadav",
+        position: "Editor",
+        photo: "sh11.jpg",
+        bio: "The Editor contributes to the fan club by preparing, refining, and organizing written content for publications and digital platforms. They ensure clarity, accuracy, and consistency in all communications, helping maintain the club’s professional and engaging voice across media."
+      },
+    ];
+
+    // Generate cards dynamically
+    const container = document.getElementById('team-container');
+
+    teamMembers.forEach(member => {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      card.innerHTML = `
+        ${member.photo 
+          ? `<img src="${member.photo}" alt="${member.name}">`
+          : `<div class="placeholder-img" style="height:300px;">${member.name.charAt(0)}</div>`
+        }
+        <div class="card-content">
+          <h2>${member.name}</h2>
+          <h3>${member.position}</h3>
+          <p>${member.bio}</p>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+  </script>
+
+</body>
+
+</html>
+

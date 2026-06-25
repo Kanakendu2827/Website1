@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mariners Onside - Memories</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, maroon 0%, #006400 50%, maroon 100%);
+      min-height: 100vh;
+      color: white;
+    }
+
+    /* Enhanced Hero Title Section */
+    .hero-title {
+      text-align: center;
+      padding: 100px 20px 80px;
+      position: relative;
+    }
+
+    .main-title {
+      text-align: center;
+      font-size: 3.8rem;
+      font-weight: 900;
+      margin: 0 0 1rem;
+      color: white;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-shadow: 
+        0 0 15px #00ff00,
+        0 0 30px #00ff00,
+        0 0 60px #00ff00,
+        0 0 90px #00ff00,
+        0 5px 15px rgba(0, 100, 0, 0.8);
+    }
+
+    @keyframes glowPulse {
+      from {
+        text-shadow: 
+          0 0 20px rgba(0, 255, 0, 0.6),
+          0 0 40px rgba(0, 255, 0, 0.4),
+          0 0 80px rgba(0, 255, 0, 0.3),
+          0 10px 20px rgba(0, 0, 0, 0.8);
+      }
+      to {
+        text-shadow: 
+          0 0 30px rgba(0, 255, 0, 0.8),
+          0 0 60px rgba(0, 255, 0, 0.6),
+          0 0 100px rgba(0, 255, 0, 0.5),
+          0 15px 30px rgba(0, 0, 0, 0.9);
+      }
+    }
+
+    .subtitle {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #e0ffe0;
+      margin: 30px 0 0;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+      opacity: 0.95;
+    }
+
+    .subtitle span {
+      color: #00ff00;
+      font-weight: 800;
+    }
+
+    /* Zigzag Layout */
+    .zigzag-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 100px;
+    }
+
+    .zigzag-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 120px;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .zigzag-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .zigzag-image {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .zigzag-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+      object-fit: cover;
+      border: 5px solid #006400;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .zigzag-image img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 25px 60px rgba(0, 255, 0, 0.6);
+    }
+
+    .zigzag-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    /* Glowing Headings for Memories */
+    .zigzag-text h2 {
+      margin-top: 0;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: white;
+      letter-spacing: 2px;
+      text-shadow: 
+        0 0 10px rgba(0, 255, 0, 0.5),
+        0 0 20px rgba(0, 255, 0, 0.4),
+        0 0 40px rgba(0, 255, 0, 0.3),
+        0 4px 15px rgba(0, 0, 0, 0.8);
+      animation: memoryGlow 3.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes memoryGlow {
+      from {
+        text-shadow: 
+          0 0 10px rgba(0, 255, 0, 0.5),
+          0 0 20px rgba(0, 255, 0, 0.4),
+          0 0 40px rgba(0, 255, 0, 0.3),
+          0 4px 15px rgba(0, 0, 0, 0.8);
+      }
+      to {
+        text-shadow: 
+          0 0 15px rgba(0, 255, 0, 0.7),
+          0 0 30px rgba(0, 255, 0, 0.6),
+          0 0 60px rgba(0, 255, 0, 0.5),
+          0 8px 20px rgba(0, 0, 0, 0.9);
+      }
+    }
+
+    .zigzag-text p {
+      font-size: 1.25rem;
+      line-height: 1.9;
+      color: #f0f0f0;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 992px) {
+      .main-heading {
+        font-size: 4.2rem;
+        letter-spacing: 5px;
+      }
+      .subtitle {
+        font-size: 1.5rem;
+      }
+      .zigzag-text h2 {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        padding: 80px 20px 60px;
+      }
+      .main-heading {
+        font-size: 3.5rem;
+        letter-spacing: 3px;
+      }
+      .subtitle {
+        font-size: 1.3rem;
+      }
+      .zigzag-item,
+      .zigzag-item:nth-child(even) {
+        flex-direction: column !important;
+        text-align: center;
+      }
+      .zigzag-item {
+        margin-bottom: 80px;
+        gap: 30px;
+      }
+      .zigzag-text h2 {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Enhanced Title Section -->
+  <div class="hero-title">
+    <h1 class="main-title">Memories</h1>
+    <p class="subtitle">Moments that stay with us <span>forever</span> — etched in green & maroon</p>
+  </div>
+
+  <div class="zigzag-container">
+    <!-- Item 1 -->
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t1.jpg" alt="Tribute moment at VYBK">
+      </div>
+      <div class="zigzag-text">
+        <p>The tribute to Ratan Tata Sir at Vivekananda Yuba Bharati Krirangan was a heartfelt moment of respect and gratitude for a visionary who shaped modern India with integrity, compassion, and purpose. In the presence of thousands, the tribute honoured not just an industrial leader, but a humanitarian whose values extended far beyond business. The atmosphere reflected deep admiration for his commitment to nation-building, ethical leadership, and social responsibility. Paying homage at such an iconic venue symbolised how Ratan Tata Sir’s legacy resonates across generations, inspiring people to lead with humility, courage, and care for society at large.</p>
+      </div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t2.jpg" alt="Iconic Sailboat Tifo">
+      </div>
+      <div class="zigzag-text">
+        <p>Mariners Onside standing in front of the iconic Sailboat tifo during the Ahal match was a moment that perfectly captured the pride, passion, and identity of the green-and-maroon faithful. As the magnificent tifo unfurled across the stands, symbolising Mohun Bagan’s rich heritage and fearless journey, Mariners Onside stood united, representing unwavering support and loyalty. The sight reflected the powerful bond between the club and its supporters, where history, emotion, and matchday energy came together as one. Moments like these turn a football match into a timeless memory.</p>
+      </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="t3.JPG" alt="Unity in Green & Maroon">
+      </div>
+      <div class="zigzag-text">
+        <p>Mariners Onside – We Are Together is more than just a line; it is the spirit that defines our community. It represents unity beyond differences, strength in togetherness, and an unbreakable bond rooted in love for Mohun Bagan. Whether in celebration or challenge, on matchdays or in moments of social responsibility, Mariners Onside stands as one family, supporting each other with pride and purpose. This togetherness is our identity — voices united, hearts aligned, and everyone always standing onside for the club and for one another.</p>
+      </div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="a1.jpg" alt="Away Support at Kalinga">
+      </div>
+      <div class="zigzag-text">
+        <p>Mariners Onside at Kalinga Stadium was a proud and powerful representation of the green-and-maroon spirit beyond home soil. Carrying passion across miles, the Mariners Onside family made their presence felt with unwavering energy, chants, and unity, turning the stands into a reflection of home. Their support echoed throughout the stadium, standing firmly behind the team from kickoff to the final whistle. Moments like these highlight that Mariners Onside is not limited by geography — wherever Mohun Bagan plays, its people follow, united, loyal, and always onside.</p>
+      </div>
+    </div>
+
+    <!-- Item 5 -->
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="a2.jpg" alt="Away Match Hunt">
+      </div>
+      <div class="zigzag-text">
+        <p>Mariners Onside Away Match Hunt represents the fearless passion of supporters who go the extra mile to stand beside their club, no matter the distance. It is about travelling together, planning, and turning every away game into a home-like atmosphere through chants, colours, and unity. Each away match hunt reflects commitment, brotherhood, and the determination to support Mohun Bagan beyond familiar grounds. These journeys build memories, strengthen bonds, and showcase that true support knows no boundaries.</p>
+      </div>
+    </div>
+
+    <!-- Item 6 -->
+    <div class="zigzag-item">
+      <div class="zigzag-image">
+        <img src="a3.jpg" alt="On The Road Passion">
+      </div>
+      <div class="zigzag-text">
+        <p>The away match journeys of Mariners Onside are proof that passion has no limits. Travelling far, standing strong, and roaring loud — this is what it means to be part of this family. Every mile travelled, every chant raised, and every moment shared strengthens the bond that ties us all to Mohun Bagan. We don’t just support from the stands — we live it, breathe it, and carry it wherever the team goes. Forever together. Forever onside.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

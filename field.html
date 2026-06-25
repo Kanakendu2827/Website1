@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Field Members</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg,  green 0%, maroon 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: white;
+      margin-bottom: 50px;
+      font-size: 2.8rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 24px;
+      text-align: center;
+    }
+    .card h2 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      color: #667eea;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #555;
+    }
+    .placeholder-img {
+      background: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #999;
+      font-weight: bold;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Meet Our Amazing Field Committe Team</h1>
+
+  <div class="container" id="team-container">
+  </div>
+
+  <script>
+    const teamMembers = [
+    {
+        name: "Soumyabrata Akuli",
+        position: "Field Manager",
+        photo: "c1.jpg",
+        bio: "Soumyabrata Akuli is the Club Field Manager at Mariners Onside, with 5 years of experience in facility management and club operations. Known for sustainable field maintenance and smooth event coordination, he recently led the successful in show the tifo In Mbsg Vs Ahal Fk Match, boosting performance and efficiency. He gives high-quality environment for all club members and visitors."
+      },
+      {
+        name: "Indrajit Dey(Advocate)",
+        position: "Asst Feild Manager",
+        photo: "c2.jpg",
+        bio: "Indrajit Dey serves as the Assistant Field Manager of the fans club, bringing dedication, strong leadership, and a deep passion for the community. He supports key operations, coordinates major initiatives, and works alongside the Field Manager to strengthen member engagement and uphold the club’s values."
+      },
+      {
+        name: "Abhigayan Sarkar",
+        position: "Field Supervisor",
+        photo: "as1.jpg",
+        bio:" Abhigayan Sarkar is the Field Supervisor at Mariners Onside, responsible for overseeing daily field operations and maintenance. With a "
+      },
+      {
+        name: "Kanakendu Das",
+        position: "Field Coordinator",
+        photo: "k1.jpg",
+        bio: "Kanakendu Das is the Field Coordinator at Mariners Onside, ensuring smooth communication, efficient coordination, and timely execution of all field-related duties. Known for his discipline and dedication, he manages documentation, supports event planning, and helps maintain strong connections among members."
+      },
+      {
+        name: "Rahul Mondal",
+        position: "Field Assistant",
+        photo: "ra11.jpg",
+        bio: "Serves as a Field Assistant of the fan club. "
+      },
+      {
+        name: "Sagar Haldar",
+        position: "Field Assistant",
+        photo: "sa12.jpg",
+        bio:"Serves as a Field Assistant of the fan club."
+      },
+
+      {
+        name: "Mizu Biswas",
+        position: "Field Assistant",
+        photo: "mz1.jpg",
+        bio:"Serves as a Field Assistant of the fan club."
+      },
+      {
+        name: "Debopriyo Mondal",
+        position: "Head Of the Media",
+        photo: "de11.jpg",
+        bio: "Serves as a Feild Assistant."
+      },
+      {
+        name: "Argho Dutta",
+        position: "Field Assistant",
+        photo: "ar1.jpg",
+        bio: "Argho Dutta serves as the Field assistant."
+      },
+      {
+        name: "Sourav Mazumdar",
+        position: "Field Assistant",
+        photo: "jm1.jpg",
+        bio: "Argho Dutta serves as the Field assistant."
+      },
+      {
+        name: "Anindya Bhattacharjee",
+        position: "Field Assistant",
+        photo: "pk11.jpg",
+        bio: "Annindya Bhattacharjee serves as a field assistant."
+      },
+    ];
+
+    // Generate cards dynamically
+    const container = document.getElementById('team-container');
+
+    teamMembers.forEach(member => {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      card.innerHTML = `
+        ${member.photo 
+          ? `<img src="${member.photo}" alt="${member.name}">`
+          : `<div class="placeholder-img" style="height:300px;">${member.name.charAt(0)}</div>`
+        }
+        <div class="card-content">
+          <h2>${member.name}</h2>
+          <h3>${member.position}</h3>
+          <p>${member.bio}</p>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+  </script>
+
+</body>
+
+</html>
+

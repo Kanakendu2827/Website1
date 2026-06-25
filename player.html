@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MARINERS ONSIDE FIESTA 1.0</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, maroon 0%, #006400 50%, maroon 100%);
+      min-height: 100vh;
+      color: white;
+    }
+
+    .gallery-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 100px 20px 120px;
+    }
+
+    .main-title {
+      text-align: center;
+      font-size: 3.8rem;
+      font-weight: 900;
+      margin: 0 0 1rem;
+      color: white;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-shadow: 
+        0 0 15px #00ff00,
+        0 0 30px #00ff00,
+        0 0 60px #00ff00,
+        0 0 90px #00ff00,
+        0 5px 15px rgba(0, 100, 0, 0.8);
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.6rem;
+      color: white;
+      margin: 0 0 60px;
+      font-weight: 600;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      transition: all 0.4s ease;
+      border: 4px solid #006400;
+      cursor: zoom-in;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-15px) scale(1.03);
+      box-shadow: 0 30px 60px rgba(0, 255, 0, 0.5);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.15);
+    }
+
+    /* Gradient overlay + Caption */
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%);
+      pointer-events: none;
+      transition: height 0.4s ease;
+    }
+
+    .gallery-item:hover::after {
+      height: 80%;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 30, 0, 0.95) 100%);
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      width: 100%;
+      padding: 0 20px;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: white;
+      text-shadow: 0 0 10px rgba(255,215,0,0.6), 0 2px 8px #000;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .gallery-item:hover .caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.98);
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 94%;
+      max-height: 94vh;
+      border: 12px solid #006400;
+      box-shadow: 0 0 80px rgba(0, 255, 0, 0.9);
+      border-radius: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .main-title { font-size: 2.8rem; letter-spacing: 2px; }
+      .subtitle { font-size: 1.3rem; }
+      .gallery-grid { gap: 20px; }
+      .gallery-item img { min-height: 240px; }
+      .caption { font-size: 1.2rem; bottom: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="gallery-section">
+    <h1 class="main-title">MARINERS ONSIDE PLAYERS MEET UP</h1>
+    <h3 class="subtitle">"
+
+The Mariners Onside Players’ Meet-Up with Mohun Bagan players was a truly special and unforgettable moment for every green-and-maroon heart. It wasn’t just a meeting, but a celebration of shared passion, respect, and legacy. Seeing the players interact with the Mariners Onside community created an atmosphere filled with pride, warmth, and inspiration. Conversations, smiles, and memories flowed freely, strengthening the bond between the club and its supporters. Moments like these remind us that Mohun Bagan is more than a football team — it is a family where players and fans stand together, onside, always. "</h3>
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        <img src="t4.jpg" alt="Mariners Onside Fiesta 1.0">
+      </div>
+
+      <div class="gallery-item">
+        <img src="t5.jpg" alt="Mariners Onside Fiesta 1.0">
+      </div>
+
+      <div class="gallery-item">
+        <img src="t6.jpg" alt="Mariners Onside Fiesta 1.0">
+      </div>
+
+      <div class="gallery-item">
+        <img src="t7.jpg" alt="Mariners Onside Fiesta 1.0">
+      </div>
+
+      <div class="gallery-item">
+        <img src="t8.jpg" alt="Mariners Onside Fiesta 1.0">
+      </div>
+
+      <div class="gallery-item">
+        <img src="t9.jpg" alt="Mariners Onside Fiesta 1.0">
+      </div>
+
+      <div class="gallery-item">
+        <img src="t10.jpg" alt="Mariners Onside Fiesta 1.0">
+      </div>
+
+      <div class="gallery-item">
+        <img src="t11.jpg" alt="Mariners Onside Fiesta 1.0">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script>
+    const items = document.querySelectorAll('.gallery-item img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        lightboxImg.src = item.src;
+        lightboxImg.alt = item.alt;
+        lightbox.classList.add('active');
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+
+    // Close lightbox with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') lightbox.classList.remove('active');
+    });
+  </script>
+</body>
+
+</html>
+
+
+
