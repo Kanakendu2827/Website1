@@ -272,12 +272,6 @@
         <a href="contact Us.html">Contact</a>
     </nav>
 
-    <!-- STORE HERO -->
-    <section class="store-hero">
-        <img src="logo.jpg" alt="Mariners Onside Logo" class="hero-logo">
-        <h1>OFFICIAL STORE</h1>
-        <p>Get your exclusive Mariners Onside jerseys, scarves, flags, and limited-edition merchandise!</p>
-    </section>
 
     <!-- PRODUCTS -->
     <section class="products-section">
@@ -297,20 +291,22 @@
     </section>
 
     <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2026 Mariners Onside Official Store • All Rights Reserved • Passion Finds Its Home Created By • Kanakendu Das</p>
+    <footer style="background:#111;padding:24px 20px;text-align:center;border-top:3px solid #006400;margin-top:40px;">
+        <p style="font-size:16px;opacity:0.9;line-height:1.8;">&copy; 2026 Mariners Onside Official Store • All Rights Reserved • Passion Finds Its Home Created By • Kanakendu Das</p>
         <p style="margin-top:8px;opacity:0.8;">Follow us on social for restocks and drops.</p>
     </footer>
 
     <!-- Mobile Dropdown Script -->
     <script>
         const dropdown = document.getElementById('fiesta-dropdown');
-        dropdown.addEventListener('click', function(e){
-            if(window.innerWidth <= 768){
-                e.preventDefault();
-                this.classList.toggle('active');
-            }
-        });
+        if (dropdown) {
+            dropdown.addEventListener('click', function(e){
+                if(window.innerWidth <= 768){
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                }
+            });
+        }
     </script>
 </body>
 </html>

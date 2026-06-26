@@ -43,6 +43,10 @@
         nav{
             background:#111;padding:18px 0;text-align:center;position:relative;z-index:1000;
         }
+        .nav-toggle{
+            display:none;background:transparent;border:2px solid #fff;color:#fff;padding:10px 12px;border-radius:8px;margin-left:12px;font-size:20px;
+        }
+        .nav-links{display:inline-flex;align-items:center;gap:8px;}
         nav a{
             color:#fff;margin:0 28px;text-decoration:none;font-size:18px;
             font-weight:bold;text-transform:uppercase;transition:.3s;
@@ -106,7 +110,7 @@
         .join-banner{
             background: 
                 linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-                url('t3.jpg') center/cover no-repeat;
+                url('t3.JPG') center/cover no-repeat;
             width:700px;max-width:90%;
             padding:18px 40px;
             border-radius:18px;
@@ -150,6 +154,9 @@
 
         /* RESPONSIVE */
         @media (max-width:768px){
+            .nav-toggle{display:inline-block;}
+            .nav-links{display:none;flex-direction:column;gap:12px;background:#111;padding:16px 12px;border-top:1px solid rgba(255,255,255,0.04);position:absolute;left:0;right:0;top:100%;}
+            .nav-links.show{display:flex;}
             .join-banner{width:85%;padding:16px 30px;}
             .join-banner h1{font-size:52px;letter-spacing:5px;}
             .membership-boxes{gap:50px;}
@@ -163,6 +170,163 @@
             .btn{font-size:20px;padding:16px;}
             nav a{margin:0 10px;font-size:15px;}
         }
+        /* ADVERTISEMENT CAROUSEL */
+
+.ad-carousel{
+    padding:30px 12px;
+    background:linear-gradient(180deg,#050505,#0a0a0a);
+}
+
+.carousel-container{
+    max-width:900px;
+    width:90%;
+    margin:0 auto;
+    position:relative;
+    overflow:hidden;
+    border-radius:18px;
+    border:3px solid rgba(0,255,0,.35);
+    box-shadow:0 0 25px rgba(0,255,0,.25);
+    background:#ffffff;
+}
+
+/* Slides */
+
+.slides{
+    display:flex;
+    transition:transform .6s ease-in-out;
+    width:100%;
+}
+
+.slide{
+    min-width:100%;
+    flex-shrink:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:350px;
+    padding:10px;
+
+    background:#fff;
+}
+
+/* IMPORTANT - NO IMAGE CROPPING */
+
+.slide a{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    height:100%;
+    cursor:pointer;
+}
+
+.slide img{
+    max-width:100%;
+    max-height:100%;
+
+    width:auto;
+    height:auto;
+
+    object-fit:contain;
+    object-position:center;
+
+    display:block;
+}
+
+/* Buttons */
+
+.controls button{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:42px;
+    height:42px;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(0,0,0,.55);
+    color:#fff;
+
+    font-size:24px;
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.controls button:hover{
+    background:#00aa00;
+}
+
+.controls .prev{
+    left:12px;
+}
+
+.controls .next{
+    right:12px;
+}
+
+/* Dots */
+
+.dots{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:15px;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#666;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.dot.active{
+    background:#00ff00;
+    transform:scale(1.25);
+}
+
+/* Tablet */
+
+@media(max-width:768px){
+
+    .carousel-container{
+        width:95%;
+    }
+
+    .slide{
+        height:260px;
+    }
+
+    .controls button{
+        width:36px;
+        height:36px;
+        font-size:20px;
+    }
+
+}
+
+/* Mobile */
+
+@media(max-width:480px){
+
+    .slide{
+        height:200px;
+        padding:8px;
+    }
+
+    .controls button{
+        width:32px;
+        height:32px;
+        font-size:18px;
+    }
+
+}
     </style>
 </head>
 <body>
@@ -187,44 +351,47 @@
 
     <!-- NAVIGATION -->
     <nav>
-        <a href="contact-us.html">CONTACT US</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><i class="fas fa-bars"></i></button>
+        <div class="nav-links">
+            <a href="contact-us.html">CONTACT US</a>
 
-        <!-- FIESTA Dropdown -->
-        <div class="dropdown">
-            <a href="fiesta.html" class="dropdown-toggle">
-                FIESTA <i class="fas fa-caret-down"></i>
-            </a>
-            <div class="dropdown-content">
-                <a href="agm.html">AGM</a>
-                <a href="football.html">FOOTBALL FIESTA</a>
+            <!-- FIESTA Dropdown -->
+            <div class="dropdown">
+                <a href="fiesta.html" class="dropdown-toggle">
+                    FIESTA <i class="fas fa-caret-down"></i>
+                </a>
+                <div class="dropdown-content">
+                    <a href="agm.html">AGM</a>
+                    <a href="football.html">FOOTBALL FIESTA</a>
+                </div>
             </div>
-        </div>
 
-        <!-- MEMORIES Dropdown (NOW FULLY WORKING) -->
-        <div class="dropdown">
-            <a href="memories.html" class="dropdown-toggle">
-                MEMORIES <i class="fas fa-caret-down"></i>
-            </a>
-            <div class="dropdown-content">
-                <a href="player.html">PLAYERS MEET-UP</a>
-                <a href="social-work.html">SOCIAL WORK</a>
+            <!-- MEMORIES Dropdown (NOW FULLY WORKING) -->
+            <div class="dropdown">
+                <a href="memories.html" class="dropdown-toggle">
+                    MEMORIES <i class="fas fa-caret-down"></i>
+                </a>
+                <div class="dropdown-content">
+                    <a href="player.html">PLAYERS MEET-UP</a>
+                    <a href="social-work.html">SOCIAL WORK</a>
+                </div>
             </div>
-        </div>
 
-        <!-- STRATEGIC ADMIN PANEL Dropdown -->
-        <div class="dropdown">
-            <a href="#" class="dropdown-toggle">
-                ADMIN PANEL <i class="fas fa-caret-down"></i>
-            </a>
-            <div class="dropdown-content">
-                <a href="core.html">CORE TEAM</a>
-                <a href="media.html">MEDIA TEAM</a>
+            <!-- STRATEGIC ADMIN PANEL Dropdown -->
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">
+                    ADMIN PANEL <i class="fas fa-caret-down"></i>
+                </a>
+                <div class="dropdown-content">
+                    <a href="core.html">CORE TEAM</a>
+                    <a href="media.html">MEDIA TEAM</a>
+                </div>
             </div>
-        </div>
 
-        <a href="gallery.html">MINDFRAMES</a>
-        <a href="test.html">TROPHY ROOM</a>
-        <a href="store.html">STORE</a>
+            <a href="gallery.html">MINDFRAMES</a>
+            <a href="test.html">TROPHY ROOM</a>
+            <a href="store.html">STORE</a>
+        </div>
     </nav>
 
     <!-- HERO SECTION -->
@@ -245,6 +412,23 @@
                 <p>YEARLY ₹149</p>
             </div>
         </div>
+    </section>
+
+    <!-- ADVERTISEMENT CAROUSEL -->
+    <section class="ad-carousel" aria-label="Sponsored">
+        <div class="carousel-container" id="adCarousel">
+            <div class="slides">
+                <div class="slide"><a href="store.html"><img src="Ad11.png" alt="Ad 1"></a></div>
+                <div class="slide"><a href="store.html"><img src="Ad12.jpg" alt="Ad 2"></a></div>
+                <div class="slide"><a href="store.html"><img src="Ad 13.jpg" alt="Ad 3"></a></div>
+                <div class="slide"><a href="store.html"><img src="Ad 14.jpg" alt="Ad 4"></a></div>
+            </div>
+            <div class="controls">
+                <button class="prev" aria-label="Previous ad">‹</button>
+                <button class="next" aria-label="Next ad">›</button>
+            </div>
+        </div>
+        <div class="dots" id="adDots" aria-hidden="false"></div>
     </section>
 
     <!-- UNIVERSAL DROPDOWN SCRIPT (Desktop Hover + Mobile Tap) -->
@@ -284,7 +468,80 @@
                 document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
             }
         });
+
+        // Mobile nav toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        navToggle.addEventListener('click', function(e){
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', String(!expanded));
+            navLinks.classList.toggle('show');
+        });
+
+        // Close mobile nav when clicking a link (better UX)
+        navLinks.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('show');
+                    navToggle.setAttribute('aria-expanded','false');
+                }
+            });
+        });
+
+        // Advertisement carousel
+        (function(){
+            const carousel = document.getElementById('adCarousel');
+            if (!carousel) return;
+            const slidesEl = carousel.querySelector('.slides');
+            const slides = Array.from(carousel.querySelectorAll('.slide'));
+            const prev = carousel.querySelector('.prev');
+            const next = carousel.querySelector('.next');
+            const dotsContainer = document.getElementById('adDots');
+            let index = 0;
+            let interval = null;
+
+            // build dots
+            slides.forEach((s,i)=>{
+                const d = document.createElement('span');
+                d.className='dot'+(i===0?' active':'');
+                d.dataset.index = i;
+                d.addEventListener('click', ()=> goTo(i));
+                dotsContainer.appendChild(d);
+            });
+
+            function update(){
+                slidesEl.style.transform = `translateX(-${index*100}%)`;
+                dotsContainer.querySelectorAll('.dot').forEach((d,i)=> d.classList.toggle('active', i===index));
+            }
+            function goTo(i){ index = (i + slides.length) % slides.length; update(); }
+            function nextSlide(){ goTo(index+1); }
+            function prevSlide(){ goTo(index-1); }
+
+            next.addEventListener('click', ()=>{ nextSlide(); resetInterval(); });
+            prev.addEventListener('click', ()=>{ prevSlide(); resetInterval(); });
+
+            // autoplay
+            function startInterval(){ interval = setInterval(nextSlide, 4000); }
+            function resetInterval(){ clearInterval(interval); startInterval(); }
+            carousel.addEventListener('mouseenter', ()=> clearInterval(interval));
+            carousel.addEventListener('mouseleave', ()=> startInterval());
+
+            // basic touch swipe
+            let startX = 0;
+            slidesEl.addEventListener('touchstart', e=> startX = e.touches[0].clientX);
+            slidesEl.addEventListener('touchend', e=>{
+                const dx = (e.changedTouches[0].clientX - startX);
+                if (dx > 40) { prevSlide(); resetInterval(); }
+                else if (dx < -40) { nextSlide(); resetInterval(); }
+            });
+
+            update(); startInterval();
+        })();
     </script>
+    <footer style="background:#111;padding:24px 20px;text-align:center;border-top:3px solid #006400;margin-top:40px;">
+        <p style="font-size:16px;opacity:0.9;line-height:1.8;">&copy; 2026 Mariners Onside Official Store • All Rights Reserved • Passion Finds Its Home Created By • Kanakendu Das</p>
+        <p style="margin-top:8px;opacity:0.8;">Follow us on social for restocks and drops.Created by Kanakendu Das</p>
+    </footer>
 </body>
 </html>
 
